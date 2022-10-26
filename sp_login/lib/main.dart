@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: FutureBuilder<bool>(
+      home: LoginEkran()
+      /*FutureBuilder<bool>(
         future: oturumBilgisiOku(),
         builder: (context,snapshot){
           if(snapshot.hasData){
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
           }
         },
       ),
+      */
     );
   }
 }
@@ -95,22 +97,36 @@ class _LoginEkranState extends State<LoginEkran> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextField(
+                    cursorColor: Colors.blueAccent,
+                    maxLength: 100,
+                    cursorRadius: Radius.circular(10),
+                    textAlign: TextAlign.start,
                     controller: tfKullaniciAdi,
                     decoration: InputDecoration(
                       hintText: "Kullanici Adi",
                     ),
                   ),
                   TextField(
+                    cursorColor: Colors.blueAccent,
+                    maxLength: 100,
+                    cursorRadius: Radius.circular(10),
+                    textAlign: TextAlign.start,
                     controller: tfSifre,
                     decoration: InputDecoration(
                         hintText: "Kullanici Sifre"
                     ),
                   ),
-                  RaisedButton(
-                    child: Text("Giris Yap"),
-                    onPressed: (){
-                      girisKontrol();
-                    },
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RaisedButton(
+                      color: Colors.blue,
+                      focusColor: Colors.lightBlue,
+                      hoverColor: Colors.red,
+                      child: Text("Giris Yap",style: TextStyle(color: Colors.white,),),
+                      onPressed: (){
+                        girisKontrol();
+                      },
+                    ),
                   )
                 ],
               ),
